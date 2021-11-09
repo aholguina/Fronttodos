@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Costume Store</title>
+  <style>
+    table,
+    th,
+    td {
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Demo</title>
+  <meta name="viewport" content="width=device-width" />
+  <base href="/" />
+  <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+  <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+  <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+  <!-- <script type="text/javascript" src="script.js"></script> -->
+  <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+
+<body>
+
+  <div class="container unauthenticated">
+    <br>
+    <h1>Regístrate para poder acceder al contenido</h1> <br><br><br>
+    <h5 style="color:rgb(255, 30, 0);  text-align: center;">Ingresa con GitHub: </h5> <a href="/oauth2/authorization/github"> <img
+        src="https://img.icons8.com/fluency/48/000000/user-male.png"
+        style=" display:block; margin:auto; width: 7%; height: 7%;" /></a>
+  </div>
+
+
+  <div class="container authenticated" style="display:none">
+    Logged in as: <span id="user"></span>
+
+    <header id="cabeceralogo">
+      <div>
+        <h1>TIENDA DE DISFRACES ONLINE </h1>
+      </div>
+     <!-- <img src="img/costumeStore.png" alt="" id="headerLogo"> -->
+    </header>
+
+    <nav id="menuprincipal">
+      <div>
+        <ul>
+          <li><a href="index.html">Principal</a></li>
+          <li><a href="Categorias.html">Categorias</a></li>
+          <li><a href="Clientes.html">Clientes</a></li>
+          <li><a href="Costume.html">Costumes</a></li>
+          <li><a href="Mensajes.html">Mensajes</a></li>
+          <li><a href="Reservaciones.html">Reservaciones</a></li>
+          <li><a href="Reportes.html">Reportes</a></li>
+          
+        </ul>
+      </div>
+    </nav>
+    <br><br><br><br>
+    <div style="margin-left: 100px;">
+    <h3> Recomendaciones Genarales: al momento de realizar algún registro recuerda que:</h3>
+<br><br>
+    <ul>
+    <!--<ul style="list-style-image:url(https://img.icons8.com/fluency/48/000000/arrow.png);">-->
+      <li>
+        <h3> Antes de poder crear un Disfraz debes crear una categoría</h3>
+      </li>
+      <li>
+        <h3> Antes de poder crear un Mensaje debes crear un cliente y un disfraz</h3>
+      </li>
+      <li>
+        <h3> Antes de poder crear una Reservación debes crear un cliente y un disfraz</h3>
+      </li>
+
+    </ul>
+  </div>
+
+<br><br><br><br>
+
+
+  </div>
+
+</body>
+
+<footer id="footer">
+<hr>
+<p style="font-size: 14px; ">Bienvenidos</p>
+
+</footer>
+
+<script type="text/javascript">
+  $.get("/user", function (data) {
+    $("#user").html(data.name);
+    $(".unauthenticated").hide()
+    $(".authenticated").show()
+  });
+</script>
+
+</html>
